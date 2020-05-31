@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx100v2_hit_01.ogg-20f5de73171e8230248ad48ed4150248.oggstr"
+
+[deps]
+
+source_file="res://resources/SFX/effects/enemy_hit/sfx100v2_hit_01.ogg"
+dest_files=[ "res://.import/sfx100v2_hit_01.ogg-20f5de73171e8230248ad48ed4150248.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

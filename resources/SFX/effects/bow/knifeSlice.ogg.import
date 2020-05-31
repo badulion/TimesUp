@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/knifeSlice.ogg-18bd414614e46c30b593f73c044272ad.oggstr"
+
+[deps]
+
+source_file="res://resources/SFX/effects/bow/knifeSlice.ogg"
+dest_files=[ "res://.import/knifeSlice.ogg-18bd414614e46c30b593f73c044272ad.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

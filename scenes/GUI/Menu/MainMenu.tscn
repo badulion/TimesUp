@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/GUI/Menu/MenuTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/GUI/Menu/MainMenu.gd" type="Script" id=2]
+
+[node name="MainMenu" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" parent="." index="0"]
+autoplay = ""
+
+[node name="ParallaxBackground" parent="." index="1"]
+scroll_offset = Vector2( -40.96, 0 )
+
+[node name="VBoxContainer" parent="CenterContainer" index="0"]
+margin_top = 112.0
+margin_bottom = 487.0
+
+[node name="Start" type="Button" parent="CenterContainer/VBoxContainer" index="2"]
+margin_top = 187.0
+margin_right = 325.0
+margin_bottom = 247.0
+text = "Start"
+
+[node name="Options" type="Button" parent="CenterContainer/VBoxContainer" index="3"]
+margin_top = 251.0
+margin_right = 325.0
+margin_bottom = 311.0
+disabled = true
+text = "Options"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" index="4"]
+margin_top = 315.0
+margin_right = 325.0
+margin_bottom = 375.0
+text = "Quit"
+
+[node name="BackgroundMusic" parent="." index="3"]
+autoplay = false
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

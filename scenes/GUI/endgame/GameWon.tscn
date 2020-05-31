@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/GUI/endgame/EndGameTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/GUI/endgame/GameWon.gd" type="Script" id=2]
+[ext_resource path="res://resources/SFX/music/menu/awesomeness.wav" type="AudioStream" id=3]
+
+[node name="MenuTemplate" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Title" parent="CenterContainer/VBoxContainer" index="0"]
+text = "Congratulations!"
+
+[node name="ForwardButton" parent="CenterContainer/VBoxContainer/HBoxContainer/TextureButton2" index="0"]
+text = "Next"
+
+[node name="BackgroundMusic" parent="." index="3"]
+stream = ExtResource( 3 )
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/TextureButton/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/TextureButton2/ForwardButton" to="." method="_on_ForwardButton_pressed"]

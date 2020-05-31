@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/awesomeness.wav-0d87b3b2a609a3fdb3826292ea27454e.sample"
+
+[deps]
+
+source_file="res://resources/SFX/music/menu/awesomeness.wav"
+dest_files=[ "res://.import/awesomeness.wav-0d87b3b2a609a3fdb3826292ea27454e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

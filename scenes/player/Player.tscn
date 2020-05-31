@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://resources/GFX/characters/character_roundGreen.png" type="Texture" id=2]
+[ext_resource path="res://resources/SFX/effects/player_hurt/sfx100v2_misc_19.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/weapons/Longbow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/weapons/Laser.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 40.0813
+height = 42.2722
+
+[sub_resource type="Animation" id=2]
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 0.9 ), Vector2( 0.95, 1.05 ), Vector2( 1.02, 0.98 ), Vector2( 0.99, 1.01 ), Vector2( 1.005, 0.995 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "hurt"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.7, 1, 1.45, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 22
+script = ExtResource( 1 )
+bow_scene = ExtResource( 4 )
+laser_scene = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.269207, -1.02781 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="JumpAnimator" type="AnimationPlayer" parent="."]
+anims/jump = SubResource( 2 )
+
+[node name="HurtAnimator" type="AnimationPlayer" parent="."]
+anims/hurt = SubResource( 3 )
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="GroundedTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="HurtTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[node name="HurtAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 20.0
+[connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]
+[connection signal="timeout" from="GroundedTimer" to="." method="_on_GroundedTimer_timeout"]

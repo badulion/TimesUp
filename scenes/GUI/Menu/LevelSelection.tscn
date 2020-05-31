@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/GUI/Menu/MenuTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/GUI/Menu/LevelSelection.gd" type="Script" id=2]
+
+[node name="LevelSelection" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" parent="CenterContainer" index="0"]
+margin_left = 283.0
+margin_top = 112.0
+margin_right = 740.0
+margin_bottom = 487.0
+
+[node name="Title" parent="CenterContainer/VBoxContainer" index="0"]
+margin_right = 457.0
+
+[node name="Space" parent="CenterContainer/VBoxContainer" index="1"]
+margin_right = 457.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer" index="2"]
+margin_top = 187.0
+margin_right = 457.0
+margin_bottom = 311.0
+custom_constants/hseparation = 50
+columns = 3
+
+[node name="Level1" type="Button" parent="CenterContainer/VBoxContainer/GridContainer" index="0"]
+margin_right = 118.0
+margin_bottom = 60.0
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="CenterContainer/VBoxContainer/GridContainer" index="1"]
+margin_left = 168.0
+margin_right = 287.0
+margin_bottom = 60.0
+disabled = true
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="CenterContainer/VBoxContainer/GridContainer" index="2"]
+margin_left = 337.0
+margin_right = 457.0
+margin_bottom = 60.0
+disabled = true
+text = "Level 3"
+
+[node name="Level4" type="Button" parent="CenterContainer/VBoxContainer/GridContainer" index="3"]
+margin_top = 64.0
+margin_right = 118.0
+margin_bottom = 124.0
+disabled = true
+text = "Level 4"
+
+[node name="Level5" type="Button" parent="CenterContainer/VBoxContainer/GridContainer" index="4"]
+margin_left = 168.0
+margin_top = 64.0
+margin_right = 287.0
+margin_bottom = 124.0
+disabled = true
+text = "Level 5"
+
+[node name="Level6" type="Button" parent="CenterContainer/VBoxContainer/GridContainer" index="5"]
+margin_left = 337.0
+margin_top = 64.0
+margin_right = 457.0
+margin_bottom = 124.0
+disabled = true
+text = "Level 6"
+
+[node name="Back" type="Button" parent="CenterContainer/VBoxContainer" index="3"]
+margin_top = 315.0
+margin_right = 457.0
+margin_bottom = 375.0
+text = "Back"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Level1" to="." method="_on_Level1_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]

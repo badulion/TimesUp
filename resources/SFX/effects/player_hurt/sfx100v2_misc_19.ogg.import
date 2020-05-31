@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx100v2_misc_19.ogg-0c1033568bfee6c441df84c209bb95be.oggstr"
+
+[deps]
+
+source_file="res://resources/SFX/effects/player_hurt/sfx100v2_misc_19.ogg"
+dest_files=[ "res://.import/sfx100v2_misc_19.ogg-0c1033568bfee6c441df84c209bb95be.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

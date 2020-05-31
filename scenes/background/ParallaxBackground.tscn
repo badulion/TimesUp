@@ -1,0 +1,114 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/background/ParallaxBackground.gd" type="Script" id=1]
+[ext_resource path="res://resources/GFX/background/background_cloudA.png" type="Texture" id=2]
+[ext_resource path="res://resources/GFX/background/background_cloudB.png" type="Texture" id=3]
+[ext_resource path="res://resources/GFX/background/background_treeLarge.png" type="Texture" id=5]
+[ext_resource path="res://resources/GFX/background/background_tree.png" type="Texture" id=6]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.477419 )
+colors = PoolColorArray( 0.898438, 0.898438, 0.898438, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "background"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scroll_base_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -10240, 0 ) ]
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_offset = Vector2( -40.96, 0 )
+scroll_base_scale = Vector2( 1, 0.2 )
+script = ExtResource( 1 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1024, 600 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 1024, 600 )
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1024, 600 )
+
+[node name="background_cloudA" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 226.958, 249.512 )
+texture = ExtResource( 2 )
+
+[node name="background_treeLarge" type="Sprite" parent="ParallaxLayer2/background_cloudA"]
+position = Vector2( 8.14404, -169.766 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="background_cloudA2" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 557.912, 325.424 )
+texture = ExtResource( 2 )
+
+[node name="background_tree" type="Sprite" parent="ParallaxLayer2/background_cloudA2"]
+position = Vector2( 12.7675, -174.168 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="background_cloudB" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 452.538, 165.819 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 1024, 600 )
+
+[node name="background_cloudA3" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 855.353, 293.342 )
+texture = ExtResource( 2 )
+
+[node name="background_cloudB2" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 524.934, 431.406 )
+texture = ExtResource( 3 )
+
+[node name="background_cloudB3" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 272.267, 24.2738 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_mirroring = Vector2( 1024, 600 )
+
+[node name="background_cloudA" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( 918.164, 41.7983 )
+texture = ExtResource( 2 )
+
+[node name="background_tree" type="Sprite" parent="ParallaxLayer4/background_cloudA"]
+position = Vector2( 13.347, -169.609 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="background_cloudB" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( 261.665, 527.531 )
+texture = ExtResource( 3 )
+
+[node name="CloudMovement" type="AnimationPlayer" parent="."]
+autoplay = "background"
+playback_speed = 0.05
+anims/background = SubResource( 3 )
